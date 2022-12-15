@@ -4,7 +4,7 @@ import resizeRoutes from "./routes/resizeImgRoute";
 const app = express();
 const port = 3000;
 
-app.use("/resize", resizeRoutes);
+app.use("/api", resizeRoutes);
 
 // start the Express server
 app.listen(port, () => {
