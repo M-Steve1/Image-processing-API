@@ -1,11 +1,15 @@
-import supertest from "supertest";
-import app from "../..";
+import supertest from 'supertest';
+import app from '../..';
 
 const request = supertest(app);
 
-describe("Test for resize endpoint", () => {
-  it("Should return a status code of 200", async () => {
-    const response = await request.get("/api/resizeimage?filename=icelandwaterfall.jpg&width=1000&height=500");
+describe('Test for resize endpoint', () => {
+  const fileName = 'icelandwaterfall';
+  const width = 200;
+  const height = 300;
+  const url = `/api/resizeimage?filename=${fileName}.jpg&width=${width}&height=${height}`;
+  it('Should return a status code of 200', async () => {
+    const response = await request.get(url);
     expect(response.status).toBe(200);
   });
 });

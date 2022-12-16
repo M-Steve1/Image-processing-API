@@ -1,11 +1,10 @@
-import express from "express";
-import { cache } from "./middleware/cache";
-import resizeRoutes from "./routes/resizeImgRoute";
+import express from 'express';
+import resizeRoutes from './routes/resizeImgRoute';
 
 const app = express();
 const port = 3000;
 
-app.use("/api", resizeRoutes);
+app.use('/api', resizeRoutes);
 
 // start the Express server
 app.listen(port, () => {

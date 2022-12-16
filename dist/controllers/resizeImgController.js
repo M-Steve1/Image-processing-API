@@ -13,15 +13,14 @@ const resizeImage = (req, res) => {
     const height = parseInt(req.query.height);
     (0, sharp_1.default)(input)
         .resize({ width: width, height: height })
-        .toFile(output, (err, info) => {
+        .toFile(output, (err) => {
         if (err) {
             // should be res.status().send() not res.send().status()
-            res.status(304).send("Something went wrong");
+            res.status(304).send('Something went wrong');
             console.log(err);
         }
         else {
-            res.status(200).send(`Image resized ${info}`);
-            return info;
+            res.status(200).sendFile(output);
         }
     });
 };

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const resizeImgRoute_1 = __importDefault(require("./routes/resizeImgRoute"));
 const app = (0, express_1.default)();
 const port = 3000;
-app.use("/api", resizeImgRoute_1.default);
+app.use('/api', resizeImgRoute_1.default);
 // start the Express server
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);

@@ -1,6 +1,6 @@
-import express from "express";
-import { resizeImage } from "../controllers/resizeImgController";
-import { cache} from "../middleware/cache";
+import express from 'express';
+import { resizeImage } from '../controllers/resizeImgController';
+import { cache } from '../middleware/cache';
 
 const resizeRoutes = express.Router();
 
