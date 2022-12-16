@@ -1,4 +1,5 @@
 import express from "express";
+import { cache } from "./middleware/cache";
 import resizeRoutes from "./routes/resizeImgRoute";
 
 const app = express();

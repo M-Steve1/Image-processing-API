@@ -6,7 +6,7 @@ export const resizeImage = (
   req: express.Request,
   res: express.Response
 ): void => {
-    const input: string = path.resolve(`images/ful/${req.query.filename}`);
+    const input: string = path.resolve(`images/full/${req.query.filename}`);
     const output = path.resolve(`images/resized/${req.query.filename}`);
     const width: number = parseInt(req.query.width as string);
     const height: number = parseInt(req.query.height as string);
@@ -14,11 +14,11 @@ export const resizeImage = (
     .resize({width: width, height: height})
     .toFile(output, (err) => {
       if (err) {
-        res.send("Something went wrong");
+        // should be res.status().send() not res.send().status()
+        res.status(304).send("Something went wrong");
         console.log(err);
       } else {
-        res.send("Image resized");
+        res.status(200).sendFile(output);
       }
-      
     });
 }
