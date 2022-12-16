@@ -20,7 +20,7 @@ export const cache = (
   if (cachedResponse) {
     res.status(200).sendFile(cachedResponse as string);
   } else {
-    const output = path.resolve(`images/resized/${fileName}_${req.query.width}x${req.query.height}.${fileExt}`);
+    const output = path.resolve(`images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`);
     myCache.set(key, output, 600);
     next();
   }

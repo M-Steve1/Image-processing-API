@@ -16,10 +16,10 @@ const supertest_1 = __importDefault(require("supertest"));
 const __1 = __importDefault(require("../.."));
 const request = (0, supertest_1.default)(__1.default);
 describe('Test for resize endpoint', () => {
-    const fileName = 'icelandwaterfall.jpg';
+    const fileName = 'icelandwaterfall';
     const width = 200;
     const height = 300;
-    const url = `/api/resizeimage?filename=${fileName}&width=${width}&height=${height}`;
+    const url = `/api/resizeimage?filename=${fileName}.jpg&width=${width}&height=${height}`;
     it('Should return a status code of 200', () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield request.get(url);
         expect(response.status).toBe(200);

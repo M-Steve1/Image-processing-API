@@ -17,6 +17,7 @@ export const getFileName = (input:string): string=> {
   
   export const getFileExt = (input: string): string => {
     const splitFilePath = input.split(".");
-    const fileExt = splitFilePath[splitFilePath.length - 1];
+    let fileExt:string = splitFilePath[splitFilePath.length - 1];
+    fileExt = "." + fileExt;
     return fileExt;
   }
