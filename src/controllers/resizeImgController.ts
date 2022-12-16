@@ -13,7 +13,9 @@ export const resizeImage = (
   const height: number = parseInt(req.query.height as string);
   const fileName = getFileName(input);
   const fileExt = getFileExt(input);
-  const output = path.resolve(`images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`);
+  const output = path.resolve(
+    `images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
+  );
 
   sharp(input)
     .resize({ width: width, height: height })
