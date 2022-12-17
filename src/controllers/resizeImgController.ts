@@ -8,24 +8,24 @@ export const resizeImage = (
   req: express.Request,
   res: express.Response
 ): void => {
-  const input: string = path.resolve(`images/full/${req.query.filename}`);
-  const width: number = parseInt(req.query.width as string);
-  const height: number = parseInt(req.query.height as string);
-  const fileName = getFileName(input);
-  const fileExt = getFileExt(input);
-  const output = path.resolve(
-    `images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
-  );
+    const input: string = path.resolve(`images/full/${req.query.filename}`);
+    const width: number = parseInt(req.query.width as string);
+    const height: number = parseInt(req.query.height as string);
+    const fileName = getFileName(input);
+    const fileExt = getFileExt(input);
+    const output = path.resolve(
+      `images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
+    );
 
-  sharp(input)
+    sharp(input)
     .resize({ width: width, height: height })
     .toFile(output, (err) => {
       if (err) {
         // should be res.status().send() not res.send().status()
         res.status(304).send('Something went wrong');
-        console.log(err);
+        console.log(res.statusCode);
       } else {
         res.status(200).sendFile(output);
       }
-    });
+    })
 };
