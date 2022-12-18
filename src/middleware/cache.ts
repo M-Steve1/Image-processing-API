@@ -12,8 +12,8 @@ export const cache = (
   next: NextFunction
 ): void => {
   const input: string = path.resolve(`images/full/${req.query.filename}`);
-  
-  if(doesFileExist(input)) {
+
+  if (doesFileExist(input)) {
     const key = req.url;
     const cachedResponse = myCache.get(key) as string;
     const fileName = getFileName(input);
@@ -23,12 +23,12 @@ export const cache = (
     );
 
     if (cachedResponse && doesFileExist(output)) {
-        res.status(200).sendFile(cachedResponse);
+      res.status(200).sendFile(cachedResponse);
     } else {
       myCache.set(key, output, 600);
       next();
     }
   } else {
-    throw "Error: File does not exist";
+    throw 'Error: File does not exist';
   }
-}
+};

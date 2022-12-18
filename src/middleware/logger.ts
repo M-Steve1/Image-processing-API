@@ -1,6 +1,6 @@
 import express, { NextFunction } from 'express';
 import path from 'path';
-import { doesFileExist} from '../utilities/fileDetails';
+import { doesFileExist } from '../utilities/fileDetails';
 
 export const logger = (
   req: express.Request,

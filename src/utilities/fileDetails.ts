@@ -1,8 +1,8 @@
-import fs from "fs"
+import fs from 'fs';
 
 export const doesFileExist = (input: string): boolean => {
   return fs.existsSync(input);
-}
+};
 
 export const getFileName = (input: string): string => {
   const splitFilePath = input.split('.');
