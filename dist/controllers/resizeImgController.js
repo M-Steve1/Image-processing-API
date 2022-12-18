@@ -25,8 +25,8 @@ const resizeImage = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     const fileExt = (0, fileDetails_2.getFileExt)(input);
     const output = path_1.default.resolve(`images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`);
     const outputFile = yield (0, imageProcessor_1.imageProcessor)(input, output, width, height);
-    if (outputFile === "error")
-        res.status(500).send("Error: Something went wrong");
+    if (outputFile === 'error')
+        res.status(500).send('Error: Something went wrong');
     else
         res.status(200).sendFile(outputFile);
 });

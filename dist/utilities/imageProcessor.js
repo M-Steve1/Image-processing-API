@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.imageProcessor = void 0;
 const sharp_1 = __importDefault(require("sharp"));
 const imageProcessor = (input, output, width, height) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         (0, sharp_1.default)(input)
             .resize({ width: width, height: height })
             .toFile(output, (err) => {
             if (err) {
-                resolve("error");
+                resolve('error');
             }
             else {
                 resolve(output);

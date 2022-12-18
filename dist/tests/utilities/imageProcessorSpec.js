@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const imageProcessor_1 = require("../../utilities/imageProcessor");
-describe("Test for image processing functionality", () => {
+describe('Test for image processing functionality', () => {
     const fileNameWithExt = 'fjord.jpg';
     const fileName = fileNameWithExt.split('.')[0];
     const fileExt = '.' + fileNameWithExt.split('.')[1];

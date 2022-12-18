@@ -6,7 +6,7 @@ export const imageProcessor = (
   width: number,
   height: number
 ): Promise<string> => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     sharp(input)
       .resize({ width: width, height: height })
       .toFile(output, (err) => {
