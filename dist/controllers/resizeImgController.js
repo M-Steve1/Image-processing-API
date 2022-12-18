@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resizeImage = void 0;
 const path_1 = __importDefault(require("path"));
-const imageProcessor_1 = require("../tests/utilities/imageProcessor");
+const imageProcessor_1 = require("../utilities/imageProcessor");
 const fileDetails_1 = require("../utilities/fileDetails");
 const fileDetails_2 = require("../utilities/fileDetails");
 const resizeImage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
