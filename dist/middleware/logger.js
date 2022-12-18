@@ -12,6 +12,7 @@ const logger = (req, res, next) => {
     const height = req.query.height;
     const input = path_1.default.resolve(`images/full/${fileName}`);
     // Checking if the file from the query parameter exist
+    // and if it has been resized
     // before logging to the console
     if ((0, fileDetails_1.doesFileExist)(input)) {
         console.log(`You resized ${fileName} to size: ${width}x${height}`);

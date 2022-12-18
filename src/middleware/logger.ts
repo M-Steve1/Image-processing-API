@@ -13,6 +13,7 @@ export const logger = (
   const input: string = path.resolve(`images/full/${fileName}`);
 
   // Checking if the file from the query parameter exist
+  // and if it has been resized
   // before logging to the console
   if (doesFileExist(input)) {
     console.log(`You resized ${fileName} to size: ${width}x${height}`);

@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import { imageProcessor } from '../tests/utilities/imageProcessor';
+import { imageProcessor } from '../utilities/imageProcessor';
 import { getFileName } from '../utilities/fileDetails';
 import { getFileExt } from '../utilities/fileDetails';
 
@@ -14,10 +14,10 @@ export const resizeImage = async (
     const fileName = getFileName(input);
     const fileExt = getFileExt(input);
     const output = path.resolve(
-      `image/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
+      `images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
     );
 
       const outputFile = await imageProcessor(input, output, width, height);
-      if (outputFile === "error") res.send("Error: Something went wrong");
-      else res.sendFile(outputFile)
+      if (outputFile === "error") res.status(500).send("Error: Something went wrong");
+      else res.status(200).sendFile(outputFile)
 };

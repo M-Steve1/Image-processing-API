@@ -23,12 +23,13 @@ export const cache = (
     );
 
     if (cachedResponse && doesFileExist(output)) {
+      console.log("cached");
         res.status(200).sendFile(cachedResponse);
     } else {
       myCache.set(key, output, 600);
       next();
     }
   } else {
-    throw "File does not exist";
+    throw "Error: File does not exist";
   }
-};
+}

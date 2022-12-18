@@ -5,8 +5,6 @@ export const doesFileExist = (input: string): boolean => {
 }
 
 export const getFileName = (input: string): string => {
-  if (!doesFileExist) throw ("File does not exist");
-
   const splitFilePath = input.split('.');
   // The path without the extension name
   const filePath = splitFilePath[0];
@@ -24,7 +22,6 @@ export const getFileName = (input: string): string => {
 };
 
 export const getFileExt = (input: string): string => {
-  if (!doesFileExist) throw ("File does not exist");
   const splitFilePath = input.split('.');
   let fileExt: string = splitFilePath[splitFilePath.length - 1];
   fileExt = '.' + fileExt;

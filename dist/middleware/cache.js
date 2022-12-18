@@ -16,17 +16,18 @@ const cache = (req, res, next) => {
         const cachedResponse = myCache.get(key);
         const fileName = (0, fileDetails_1.getFileName)(input);
         const fileExt = (0, fileDetails_2.getFileExt)(input);
-        if (cachedResponse) {
+        const output = path_1.default.resolve(`images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`);
+        if (cachedResponse && (0, fileDetails_1.doesFileExist)(output)) {
+            console.log("cached");
             res.status(200).sendFile(cachedResponse);
         }
         else {
-            const output = path_1.default.resolve(`images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`);
             myCache.set(key, output, 600);
             next();
         }
     }
     else {
-        throw "File does not exist";
+        throw "Error: File does not exist";
     }
 };
 exports.cache = cache;
