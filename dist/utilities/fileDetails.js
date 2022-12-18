@@ -3,11 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFileExt = exports.getFileName = void 0;
+exports.getFileExt = exports.getFileName = exports.doesFileExist = void 0;
 const fs_1 = __importDefault(require("fs"));
+const doesFileExist = (input) => {
+    return fs_1.default.existsSync(input);
+};
+exports.doesFileExist = doesFileExist;
 const getFileName = (input) => {
-    const fileExist = fs_1.default.existsSync(input);
-    if (!fileExist)
+    if (!exports.doesFileExist)
         throw ("File does not exist");
     const splitFilePath = input.split('.');
     // The path without the extension name
@@ -27,8 +30,7 @@ const getFileName = (input) => {
 };
 exports.getFileName = getFileName;
 const getFileExt = (input) => {
-    const fileExist = fs_1.default.existsSync(input);
-    if (!fileExist)
+    if (!exports.doesFileExist)
         throw ("File does not exist");
     const splitFilePath = input.split('.');
     let fileExt = splitFilePath[splitFilePath.length - 1];

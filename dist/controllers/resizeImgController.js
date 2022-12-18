@@ -20,7 +20,6 @@ const resizeImage = (req, res) => {
         .toFile(output, (err) => {
         if (err) {
             // should be res.status().send() not res.send().status()
-            // res.status(304);  // the middleware should work when its is 200 code
             res.status(304).send('Something went wrong');
             console.log(res.statusCode);
         }

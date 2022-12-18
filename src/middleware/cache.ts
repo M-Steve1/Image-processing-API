@@ -18,13 +18,13 @@ export const cache = (
     const cachedResponse = myCache.get(key) as string;
     const fileName = getFileName(input);
     const fileExt = getFileExt(input);
-  
-    if (cachedResponse) {
-      res.status(200).sendFile(cachedResponse as string);
+    const output = path.resolve(
+      `images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
+    );
+
+    if (cachedResponse && doesFileExist(output)) {
+        res.status(200).sendFile(cachedResponse);
     } else {
-      const output = path.resolve(
-        `images/resized/${fileName}_${req.query.width}x${req.query.height}${fileExt}`
-      );
       myCache.set(key, output, 600);
       next();
     }

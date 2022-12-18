@@ -3,8 +3,8 @@ import app from '../..';
 
 const request = supertest(app);
 
-fdescribe('Test for resize endpoint', () => {
-  const fileName = 'icelandwaterfall.jp';
+describe('Test for resize endpoint', () => {
+  const fileName = 'icelandwaterfall.jpg';
   const width = 200;
   const height = 300;
   const url = `/api/resizeimage?filename=${fileName}&width=${width}&height=${height}`;

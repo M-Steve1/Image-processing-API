@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const __1 = __importDefault(require("../.."));
 const request = (0, supertest_1.default)(__1.default);
-fdescribe('Test for resize endpoint', () => {
-    const fileName = 'icelandwaterfall.jp';
+describe('Test for resize endpoint', () => {
+    const fileName = 'icelandwaterfall.jpg';
     const width = 200;
     const height = 300;
     const url = `/api/resizeimage?filename=${fileName}&width=${width}&height=${height}`;
