@@ -3,7 +3,7 @@ import { logger } from './middleware/logger';
 import resizeRoutes from './routes/resizeImgRoute';
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 app.use(logger);
 app.use('/api', resizeRoutes);
